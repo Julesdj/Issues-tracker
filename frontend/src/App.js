@@ -6,6 +6,7 @@ import Chat from "./components/Chat";
 import MyTeam from "./components/MyTeam";
 import ManageRole from "./components/ManageRole";
 import MyTickets from "./components/MyTickets";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
