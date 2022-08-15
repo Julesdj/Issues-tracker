@@ -18,13 +18,21 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import theme from "../theme";
 import Link from "@material-ui/core/Link";
-import HomeIcon from "@mui/icons-material/Home";
+
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Switch,
 } from "react-router-dom";
+//icons
+import HomeIcon from "@mui/icons-material/Home";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
+import ChatIcon from "@mui/icons-material/Chat";
+import PeopleIcon from "@mui/icons-material/People";
+import WorkIcon from "@mui/icons-material/Work";
 
 // import AccountMenu from "./AccountMenu";
 
@@ -51,28 +59,38 @@ function Dashboard(props) {
         <List>
           <ListItem button component={Link} href="/">
             <ListItemIcon>
-              <HomeIcon />
+              <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItem>
           <ListItem button component={Link} href="/AllProjects">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <AccountTreeIcon />
+            </ListItemIcon>
             <ListItemText primary="All Projects" />
           </ListItem>
           <ListItem button component={Link} href="/MyTickets">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <ConfirmationNumberIcon />
+            </ListItemIcon>
             <ListItemText primary="My Tickets" />
           </ListItem>
           <ListItem button component={Link} href="/ManageRole">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <WorkIcon />
+            </ListItemIcon>
             <ListItemText primary="Manage Role" />
           </ListItem>
           <ListItem button component={Link} href="/MyTeam">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
             <ListItemText primary="My Team" />
           </ListItem>
           <ListItem button component={Link} href="/Chat">
-            <ListItemIcon></ListItemIcon>
+            <ListItemIcon>
+              <ChatIcon />
+            </ListItemIcon>
             <ListItemText primary="Chat" />
           </ListItem>
         </List>
