@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -13,8 +14,6 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import axios from 'axios'
-import useAuth from './Auth'
-import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -30,8 +29,10 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function SignIn() {
+  const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
+
     const data = new FormData(event.currentTarget)
     axios
       .post('/api/authn', {
@@ -40,7 +41,10 @@ export default function SignIn() {
       })
       .then((response) => {
         console.log(response.status)
-        console.log(response.data)
+        navigate('/AllProjects')
+      })
+      .catch(function (error) {
+        alert('Incorrect email or password')
       })
     console.log({
       email: data.get('email'),
@@ -60,7 +64,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#74B652' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -100,7 +104,7 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ backgroundColor: '#74B652', mt: 3, mb: 2 }}
             >
               Sign In
             </Button>

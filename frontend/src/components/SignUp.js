@@ -13,7 +13,6 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -64,7 +63,7 @@ export default function SignUp() {
             backgroundColor: 'white',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: '#74B652' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -124,7 +123,7 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ backgroundColor: 'purple', mt: 3, mb: 2 }}
+              sx={{ backgroundColor: '#74B652', mt: 3, mb: 2 }}
             >
               Sign Up
             </Button>
