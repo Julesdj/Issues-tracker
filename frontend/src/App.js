@@ -17,7 +17,7 @@ function App() {
       <DashboardLayout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/Login" element={<SignIn />} />
+          <Route path="/SignIn" element={<SignIn />} />
           <Route path="AllProjects" element={<AllProjects />} />
           <Route path="Chat" element={<Chat />} />
           <Route path="MyTeam" element={<MyTeam />} />

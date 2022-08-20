@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -28,6 +29,7 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function SignUp() {
+  const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
@@ -40,7 +42,12 @@ export default function SignUp() {
       })
       .then((response) => {
         console.log(response.status)
-        console.log(response.data)
+        navigate('/SignIn')
+      })
+      .catch(function (error) {
+        alert(
+          'You may already have an account, please proceed to the Sign In Page'
+        )
       })
     console.log({
       firstName: data.get('firstName'),
@@ -129,7 +136,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/Login" variant="body2">
+                <Link href="/SignIn" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
