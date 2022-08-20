@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -30,7 +32,20 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
+    axios
+      .post('/api/users', {
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName'),
+        email: data.get('email'),
+        password: data.get('password'),
+      })
+      .then((response) => {
+        console.log(response.status)
+        console.log(response.data)
+      })
     console.log({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
     })
@@ -115,7 +130,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link href="/Login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
