@@ -5,6 +5,7 @@ import Express from 'express';
 import dotenv from 'dotenv';
 import users from './controllers/user.js';
 import authn from './controllers/authn.js';
+import path from 'path';
 import tickets from './controllers/ticket.js';
 
 //Connection to MongoDB
