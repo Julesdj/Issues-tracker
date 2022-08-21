@@ -2,7 +2,7 @@ import Express from 'express';
 import lodash from 'lodash';
 import Joi from 'joi';
 import * as bcrypt from 'bcrypt';
-import User from '../Models/user.js';
+import User from '../models/user.js';
 
 //Variables
 const authn = Express.Router();
