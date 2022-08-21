@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import authn from '../../services/authnService';
 
 const priorities = [
@@ -89,23 +89,21 @@ function NewTicket() {
         const newTicket = {
             title: formData.get('title'),
             priority: formData.get('priority'),
-            status: formData.get('status'),
             device: formData.get('device'),
             browser: formData.get('browser'),
             description: formData.get('description'),
         };
+
+        const token = authn.getJwt();
         try {
-            const token = await authn.getJwt();
             console.log(token);
-            // await axios.post('/api/tickets', newTicket);
-            axios({
-                method: 'post',
-                url: '/api/tickets',
+            const options = {
+                method: 'POST',
+                headers: { 'x-authn-token': token },
                 data: newTicket,
-                headers: {
-                    'x-authn-token': token,
-                },
-            });
+                url: '/api/tickets',
+            };
+            await axios(options);
             navigate('../all-tickets', { replace: true }); //redirect user
         } catch (error) {
             alert(error.response.data);

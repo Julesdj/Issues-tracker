@@ -38,13 +38,13 @@ tickets.post('/', authz, async (req, res) => {
             submitterId: user._id,
             title: req.body.title,
             priority: req.body.priority,
-            status: req.body.status,
             device: req.body.device,
             browser: req.body.browser,
             description: req.body.description,
         });
 
         await ticket.save();
+        console.log(ticket);
         res.send(ticket);
     } catch (error) {
         res.status(400).send('submitterId must be a valid user ID');

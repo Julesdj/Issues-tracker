@@ -60,7 +60,6 @@ export function validateTicket(ticket) {
         // submitter: Joi.string().required(),
         title: Joi.string().min(5).max(100).required(),
         priority: Joi.string().valid('low', 'medium', 'high'),
-        status: Joi.string().valid('new', 'open', 'in progess', 'resolved'),
         device: Joi.string()
             .valid('phone', 'laptop', 'pc', 'tablet')
             .required(),
