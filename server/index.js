@@ -19,6 +19,11 @@ mongoose
 //Variables
 const app = Express();
 
+//Controllers
+app.get('/api', (req, res) => {
+    res.send('You have reached Tracker Inc. api');
+});
+
 //Middleware
 app.use(Express.json());
 app.use('/api/users', users); // add new user
@@ -30,11 +35,6 @@ const __dirname = path.resolve();
 app.use(Express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/frontend/build/index.html'));
-});
-
-//Controllers
-app.get('/', (req, res) => {
-    res.send('You have reached Tracker Inc. api');
 });
 
 //Port
